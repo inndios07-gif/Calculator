@@ -1,13 +1,35 @@
+def fizzbuzz(numero):
+    """
+    Implementa a lógica FizzBuzz:
+    - Se múltiplo de 3: "Fizz"
+    - Se múltiplo de 5: "Buzz"
+    - Se múltiplo de ambos: "FizzBuzz"
+    - Caso contrário: o número
+    """
+    # Converte para inteiro para verificar múltiplos
+    numero_int = int(numero)
+    
+    if numero_int % 3 == 0 and numero_int % 5 == 0:
+        return "FizzBuzz"
+    elif numero_int % 3 == 0:
+        return "Fizz"
+    elif numero_int % 5 == 0:
+        return "Buzz"
+    else:
+        return numero
+
+
 def calculadora():
     """
     Programa de calculadora simples que realiza operações matemáticas básicas.
     Solicita ao usuário uma operação e dois números, e retorna o resultado.
+    Após o resultado, aplica a lógica FizzBuzz.
     Repete até que o usuário digite "saída".
     """
     
-    print("=" * 40)
-    print("      BEM-VINDO À CALCULADORA")
-    print("=" * 40)
+    print("=" * 50)
+    print("   BEM-VINDO À CALCULADORA COM FIZZBUZZ")
+    print("=" * 50)
     
     while True:
         # Solicita a operação
@@ -22,10 +44,10 @@ def calculadora():
         
         # Verifica se o usuário quer sair
         if operacao == "saída" or operacao == "sair":
-            print("\n" + "=" * 40)
-            print("Obrigado por usar a Calculadora!")
+            print("\n" + "=" * 50)
+            print("Obrigado por usar a Calculadora com FizzBuzz!")
             print("Até logo! 👋")
-            print("=" * 40)
+            print("=" * 50)
             break
         
         # Valida a operação
@@ -65,11 +87,15 @@ def calculadora():
             resultado = numero1 / numero2
             operacao_nome = "Divisão"
         
+        # Aplica a lógica FizzBuzz ao resultado
+        resultado_fizzbuzz = fizzbuzz(resultado)
+        
         # Exibe o resultado
-        print("\n" + "=" * 40)
+        print("\n" + "=" * 50)
         print(f"Operação: {operacao_nome}")
         print(f"{numero1} {operacao} {numero2} = {resultado}")
-        print("=" * 40)
+        print(f"\n🎯 FizzBuzz: {resultado_fizzbuzz}")
+        print("=" * 50)
 
 
 if __name__ == "__main__":
